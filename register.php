@@ -16,7 +16,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 }
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track It</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
 <form method="post">
     Nome: <input type="text" name="nome"><br>
     Email: <input type="email" name="email"><br>
@@ -27,3 +36,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </select><br>
 <button type="submit">Cadastrar</button>
 </form>
+</div>
+</body>
+</html>

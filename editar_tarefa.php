@@ -37,6 +37,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Tarefa</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
 <h3>Editar Tarefa</h3>
 <form method="post">
     Título: <input type="text" name="titulo" value="<?php echo $tarefa['titulo']; ?>"><br>
@@ -50,3 +60,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <button type="submut">Salvar</button>
 </form>
 <a href="dashboard.php">Voltar</a>
+</div>
+</body>
+</html>

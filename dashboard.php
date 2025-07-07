@@ -10,9 +10,20 @@ $usuario_id = $_SESSION["id"];
 $sql = "SELECT * FROM tarefas WHERE usuario_id = $usuario_id";
 $res = $conn->query($sql);
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <body class="tema-claro">
 
 <h2>Bem-vindo, <?php echo $_SESSION["nome"]; ?> | <a href="logout.php">Sair</a></h2>
-
+<button onclick="alternarTema()">🌗 Alternar Tema</button> 
 <h3>Suas Tarefas:</h3>
 <ul>
 <?php while ($tarefa = $res->fetch_assoc()) : ?>
@@ -32,3 +43,7 @@ $res = $conn->query($sql);
     Data de Entrega: <input type="date" name="data_entrega"><br>
     <button type="submit">Adicionar</button>
 </form>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
