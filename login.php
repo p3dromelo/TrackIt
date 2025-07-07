@@ -2,19 +2,26 @@
 session_start();
 include 'db/conexao.php';
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
-    $sql = "SELECT * FROM usuarios WHERE email='email'";
-    $res = $conn->query($sql);
+    $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $res = $stmt->get_result();
 
-    if($res->num_rows>0){
+    if ($res->num_rows > 0) {
         $usuario = $res->fetch_assoc();
-        if (password_verify($senha, $usuario["senha"])){
+        if (password_verify($senha, $usuario["senha"])) {
             $_SESSION["id"] = $usuario["id"];
             $_SESSION["nome"] = $usuario["nome"];
-            header("Location: dashboard.php");
+            $_SESSION["role"] = $usuario["role"];
+
+            if ($usuario["role"] === "professor") {
+                header("Location: dashboard.php");
+            }
+            exit();
         } else {
             echo "Senha incorreta.";
         }

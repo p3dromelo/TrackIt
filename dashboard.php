@@ -30,5 +30,5 @@ $res = $conn->query($sql);
     Descrição: <textarea name="descricao"></textarea><br>
     Categoria: <input type="text" name="categoria"><br>
     Data de Entrega: <input type="date" name="data_entrega"><br>
-    <button type="submit"Adicionar</button>
+    <button type="submit">Adicionar</button>
 </form>
