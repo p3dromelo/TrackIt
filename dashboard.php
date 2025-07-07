@@ -20,3 +20,15 @@ $res = $conn->query($sql);
         <strong><?php echo $tarefa["titulo"]; ?></strong> - <?php echo $tarefa["status"]; ?>
         [<a href="editar_tarefa.php?id=<?php echo $tarefa['id']; ?>">Editar</a>]
         [<a href="excluir_tarefa.php?id=<?php echo $tarefa['id']; ?>">Excluir</a>]
+</li>
+<?php endwhile; ?>
+</ul>
+
+<h3>Nova Tarefa:</h3>
+<form method="post" action="adicionar_tarefa.php">
+    Título: <input type="text" name="titulo"><br>
+    Descrição: <textarea name="descricao"></textarea><br>
+    Categoria: <input type="text" name="categoria"><br>
+    Data de Entrega: <input type="date" name="data_entrega"><br>
+    <button type="submit"Adicionar</button>
+</form>
